@@ -178,6 +178,12 @@
     });
 
     //delete
+    fetch(`${carURL}/${carData.id}`,{
+      method : "DELETE",
+      headers : {
+        "Content-Type" : "application/json",
+      }
+    })
 
   
   });
