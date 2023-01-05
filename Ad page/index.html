@@ -51,7 +51,7 @@
             <option value="">2021</option>
           </select>
 
-          <input id="driven" type="number" placeholder="KM driven" />
+          <input id="driver" type="number" placeholder="KM driven" />
           <input id="desc" type="text" placeholder="Description" />
           <input id="price" type="number" placeholder="Price" />
 
@@ -110,7 +110,8 @@
       //console.log(brandInput)
       const typeofCar = document.querySelector("#typeofCar").value;
       const yearOfPurchase = document.querySelector("#yearOfPurchase").value;
-      const KMdriven = document.querySelector("#driven").value;
+      const driver = document.querySelector("#driver").value;
+      //console.log(KMdriven)
       const description = document.querySelector("#desc").value;
       const price = document.querySelector("#price").value;
 
@@ -119,10 +120,10 @@
         body: JSON.stringify({
           brand: brandInput,
           type: typeofCar,
-          year: yearOfPurchase,
-          KMdriven: KMdriven,
-          description: description,
-          price: price,
+          Year: yearOfPurchase,
+          Driven: driver,
+          Description: description,
+          Price: price,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -130,16 +131,16 @@
       })
         .then((res) => res.json)
         .then((car) => {
-          console.log(car);
+          //console.log(car);
           carContainer.innerHTML += `
-        <div id="${car.id}">
-            <img style={{border: "1px solid blsck", width:"100%"}} />
-             <h2>Brand :${car.brand}</h2>
+        <div>
+            <img style={{border: "1px solid black", width:"100%"}} />
+             <h2>${car.brand}</h2>
                 <h4>Type : ${car.type}</h4>
-                <h5>Year : ${car.year}</h5>
-                <h5>KM Driven : ${car.KMdriven}</h5>
-                <p>Description : ${car.description}</p>
-                <h5>Price : ${car.price}</h5>
+                <h5>Year : ${car.Year}</h5>
+                <h5>KM Driven : ${car.Driven}</h5>
+                <p>Description : ${car.Description}</p>
+                <h5>Price : ${car.Price}</h5>
                 <button >Edit</button>
                  <button>Delete</button>
         </div>
